@@ -1,4 +1,6 @@
 from binance.client import Client
+from binance.enums import HistoricalKlinesType
+
 import pandas as pd
 import datetime
 
@@ -53,7 +55,8 @@ def get_ohlcv_data(ticker, interval, end_time, api_key="", api_secret=""):
             interval=interval,
             start_str=start_time_str,
             end_str=end_time_dt.strftime('%Y-%m-%d %H:%M:%S'),  # Convert to string format
-            limit=60
+            limit=60,
+            klines_type= HistoricalKlinesType.FUTURES
         )
 
 
